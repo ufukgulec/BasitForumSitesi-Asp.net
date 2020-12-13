@@ -1,0 +1,1 @@
+Admin paneli ve kullanıcı paneli olan basit bir forum sitesi tasarladım.Asp.net Entity Framework kullandım veritabanından bir model oluşturdum ve model üzerinden işlem yaptım.<b>http://forum.somee.com</b>
