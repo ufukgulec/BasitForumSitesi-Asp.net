@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="myWebsiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="konular">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="konuAD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="kullanicilar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciAD" Type="nvarchar" MaxLength="100" />
+          <Property Name="kullaniciParola" Type="nvarchar" MaxLength="20" />
+          <Property Name="Eposta" Type="nvarchar(max)" />
+          <Property Name="kayitTarihi" Type="date" />
+          <Property Name="yetkiID" Type="int" />
+          <Property Name="kullaniciSlogan" Type="nvarchar(max)" />
+          <Property Name="resimYolu" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="paylasimlar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paylasimBaslik" Type="nvarchar" MaxLength="50" />
+          <Property Name="paylasimMetin" Type="nvarchar(max)" />
+          <Property Name="kullaniciID" Type="int" />
+          <Property Name="konuID" Type="int" />
+          <Property Name="tarih" Type="datetime" />
+          <Property Name="begeniSayisi" Type="int" />
+        </EntityType>
+        <EntityType Name="platform">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="platformAdi" Type="nvarchar(max)" />
+          <Property Name="hakkinda" Type="nvarchar(max)" />
+          <Property Name="slogan" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="yetki">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yetki" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_kullanicilar_yetki">
+          <End Role="yetki" Type="Self.yetki" Multiplicity="0..1" />
+          <End Role="kullanicilar" Type="Self.kullanicilar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yetki">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="kullanicilar">
+              <PropertyRef Name="yetkiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paylasimlar_konular">
+          <End Role="konular" Type="Self.konular" Multiplicity="0..1" />
+          <End Role="paylasimlar" Type="Self.paylasimlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="konular">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="paylasimlar">
+              <PropertyRef Name="konuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paylasimlar_kullanicilar">
+          <End Role="kullanicilar" Type="Self.kullanicilar" Multiplicity="0..1" />
+          <End Role="paylasimlar" Type="Self.paylasimlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kullanicilar">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="paylasimlar">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="myWebsiteModelStoreContainer">
+          <EntitySet Name="konular" EntityType="Self.konular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kullanicilar" EntityType="Self.kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paylasimlar" EntityType="Self.paylasimlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="platform" EntityType="Self.platform" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="yetki" EntityType="Self.yetki" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_kullanicilar_yetki" Association="Self.FK_kullanicilar_yetki">
+            <End Role="yetki" EntitySet="yetki" />
+            <End Role="kullanicilar" EntitySet="kullanicilar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paylasimlar_konular" Association="Self.FK_paylasimlar_konular">
+            <End Role="konular" EntitySet="konular" />
+            <End Role="paylasimlar" EntitySet="paylasimlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paylasimlar_kullanicilar" Association="Self.FK_paylasimlar_kullanicilar">
+            <End Role="kullanicilar" EntitySet="kullanicilar" />
+            <End Role="paylasimlar" EntitySet="paylasimlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="myWebsiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="konular">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="konuAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="paylasimlars" Relationship="Self.FK_paylasimlar_konular" FromRole="konular" ToRole="paylasimlar" />
+        </EntityType>
+        <EntityType Name="kullanicilar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciAD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="kullaniciParola" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kayitTarihi" Type="DateTime" Precision="0" />
+          <Property Name="yetkiID" Type="Int32" />
+          <NavigationProperty Name="paylasimlars" Relationship="Self.FK_paylasimlar_kullanicilar" FromRole="kullanicilar" ToRole="paylasimlar" />
+          <NavigationProperty Name="yetki" Relationship="myWebsiteModel.FK_kullanicilar_yetki" FromRole="kullanicilar" ToRole="yetki" />
+          <Property Name="kullaniciSlogan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="resimYolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="paylasimlar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paylasimBaslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paylasimMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kullaniciID" Type="Int32" />
+          <Property Name="konuID" Type="Int32" />
+          <NavigationProperty Name="konular" Relationship="Self.FK_paylasimlar_konular" FromRole="paylasimlar" ToRole="konular" />
+          <NavigationProperty Name="kullanicilar" Relationship="Self.FK_paylasimlar_kullanicilar" FromRole="paylasimlar" ToRole="kullanicilar" />
+          <Property Name="tarih" Type="DateTime" Precision="3" />
+          <Property Name="begeniSayisi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="platform">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="platformAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hakkinda" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="slogan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="yetki">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yetki1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="kullanicilars" Relationship="myWebsiteModel.FK_kullanicilar_yetki" FromRole="yetki" ToRole="kullanicilar" />
+        </EntityType>
+        <Association Name="FK_paylasimlar_konular">
+          <End Role="konular" Type="Self.konular" Multiplicity="0..1" />
+          <End Role="paylasimlar" Type="Self.paylasimlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="konular">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="paylasimlar">
+              <PropertyRef Name="konuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paylasimlar_kullanicilar">
+          <End Role="kullanicilar" Type="Self.kullanicilar" Multiplicity="0..1" />
+          <End Role="paylasimlar" Type="Self.paylasimlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kullanicilar">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="paylasimlar">
+              <PropertyRef Name="kullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="myWebsiteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="konulars" EntityType="Self.konular" />
+          <EntitySet Name="kullanicilars" EntityType="Self.kullanicilar" />
+          <EntitySet Name="paylasimlars" EntityType="Self.paylasimlar" />
+          <EntitySet Name="platforms" EntityType="Self.platform" />
+          <EntitySet Name="yetkis" EntityType="Self.yetki" />
+          <AssociationSet Name="FK_paylasimlar_konular" Association="Self.FK_paylasimlar_konular">
+            <End Role="konular" EntitySet="konulars" />
+            <End Role="paylasimlar" EntitySet="paylasimlars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paylasimlar_kullanicilar" Association="Self.FK_paylasimlar_kullanicilar">
+            <End Role="kullanicilar" EntitySet="kullanicilars" />
+            <End Role="paylasimlar" EntitySet="paylasimlars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kullanicilar_yetki" Association="myWebsiteModel.FK_kullanicilar_yetki">
+            <End Role="yetki" EntitySet="yetkis" />
+            <End Role="kullanicilar" EntitySet="kullanicilars" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_kullanicilar_yetki">
+          <End Type="myWebsiteModel.yetki" Role="yetki" Multiplicity="0..1" />
+          <End Type="myWebsiteModel.kullanicilar" Role="kullanicilar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yetki">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="kullanicilar">
+              <PropertyRef Name="yetkiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="myWebsiteModelStoreContainer" CdmEntityContainer="myWebsiteEntities">
+          <EntitySetMapping Name="konulars">
+            <EntityTypeMapping TypeName="myWebsiteModel.konular">
+              <MappingFragment StoreEntitySet="konular">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="konuAD" ColumnName="konuAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kullanicilars">
+            <EntityTypeMapping TypeName="myWebsiteModel.kullanicilar">
+              <MappingFragment StoreEntitySet="kullanicilar">
+                <ScalarProperty Name="resimYolu" ColumnName="resimYolu" />
+                <ScalarProperty Name="kullaniciSlogan" ColumnName="kullaniciSlogan" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kullaniciAD" ColumnName="kullaniciAD" />
+                <ScalarProperty Name="kullaniciParola" ColumnName="kullaniciParola" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="kayitTarihi" ColumnName="kayitTarihi" />
+                <ScalarProperty Name="yetkiID" ColumnName="yetkiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paylasimlars">
+            <EntityTypeMapping TypeName="myWebsiteModel.paylasimlar">
+              <MappingFragment StoreEntitySet="paylasimlar">
+                <ScalarProperty Name="begeniSayisi" ColumnName="begeniSayisi" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="paylasimBaslik" ColumnName="paylasimBaslik" />
+                <ScalarProperty Name="paylasimMetin" ColumnName="paylasimMetin" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="konuID" ColumnName="konuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="platforms">
+            <EntityTypeMapping TypeName="myWebsiteModel.platform">
+              <MappingFragment StoreEntitySet="platform">
+                <ScalarProperty Name="slogan" ColumnName="slogan" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="platformAdi" ColumnName="platformAdi" />
+                <ScalarProperty Name="hakkinda" ColumnName="hakkinda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="yetkis">
+            <EntityTypeMapping TypeName="myWebsiteModel.yetki">
+              <MappingFragment StoreEntitySet="yetki">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="yetki1" ColumnName="yetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

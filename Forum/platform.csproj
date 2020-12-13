@@ -1,0 +1,535 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{131028B2-DB38-4782-B3EC-689E502D151F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>platform</RootNamespace>
+    <AssemblyName>platform</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44395</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\anasayfaDüzen.aspx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\gönderiDüzen.aspx" />
+    <Content Include="Admin\hakkimizdaDüzen.aspx" />
+    <Content Include="Admin\konuEkle.aspx" />
+    <Content Include="Admin\kullanicilar.aspx" />
+    <Content Include="Admin\sifreDegistir.aspx" />
+    <Content Include="Admin\yetkiAl.aspx" />
+    <Content Include="Admin\yetkiVer.aspx" />
+    <Content Include="css\clean-blog.css" />
+    <Content Include="css\clean-blog.min.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="dist\assets\demo\chart-area-demo.js" />
+    <Content Include="dist\assets\demo\chart-bar-demo.js" />
+    <Content Include="dist\assets\demo\chart-pie-demo.js" />
+    <Content Include="dist\assets\demo\datatables-demo.js" />
+    <Content Include="dist\assets\img\error-404-monochrome.svg" />
+    <Content Include="dist\css\styles.css" />
+    <Content Include="dist\js\scripts.js" />
+    <Content Include="Hakkimizda.aspx" />
+    <Content Include="img\about-bg.jpg" />
+    <Content Include="img\contact-bg.jpg" />
+    <Content Include="img\home-bg.jpg" />
+    <Content Include="img\post-bg.jpg" />
+    <Content Include="img\post-sample-image.jpg" />
+    <Content Include="js\clean-blog.js" />
+    <Content Include="js\clean-blog.min.js" />
+    <Content Include="js\contact_me.js" />
+    <Content Include="js\jqBootstrapValidation.js" />
+    <Content Include="KayitOl.aspx" />
+    <Content Include="Kullanicilar\kullanici.aspx" />
+    <Content Include="Kullanicilar\KullaniciPaneli.aspx" />
+    <Content Include="Kullanicilar\postDüzenle.aspx" />
+    <Content Include="Kullanicilar\postSil.aspx" />
+    <Content Include="Kullanicilar\profilDüzen.aspx" />
+    <Content Include="Kullanicilar\sifreDegistir.aspx" />
+    <Content Include="Kullanicilar\yeniPost.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Paylasimlar\Begen.aspx" />
+    <Content Include="Paylasimlar\paylasimDetay.aspx" />
+    <Content Include="Paylasimlar\paylasimlar.aspx" />
+    <Content Include="scripts\build-assets.js" />
+    <Content Include="scripts\build-pug.js" />
+    <Content Include="scripts\build-scripts.js" />
+    <Content Include="scripts\build-scss.js" />
+    <Content Include="scripts\clean.js" />
+    <Content Include="scripts\render-assets.js" />
+    <Content Include="scripts\render-pug.js" />
+    <Content Include="scripts\render-scripts.js" />
+    <Content Include="scripts\render-scss.js" />
+    <Content Include="scripts\sb-watch.js" />
+    <Content Include="scripts\start-debug.js" />
+    <Content Include="scripts\start.js" />
+    <Content Include="src\assets\demo\chart-area-demo.js" />
+    <Content Include="src\assets\demo\chart-bar-demo.js" />
+    <Content Include="src\assets\demo\chart-pie-demo.js" />
+    <Content Include="src\assets\demo\datatables-demo.js" />
+    <Content Include="src\assets\img\error-404-monochrome.svg" />
+    <Content Include="src\js\scripts.js" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\fontawesome-free\css\all.css" />
+    <Content Include="vendor\fontawesome-free\css\all.min.css" />
+    <Content Include="vendor\fontawesome-free\css\brands.css" />
+    <Content Include="vendor\fontawesome-free\css\brands.min.css" />
+    <Content Include="vendor\fontawesome-free\css\fontawesome.css" />
+    <Content Include="vendor\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="vendor\fontawesome-free\css\regular.css" />
+    <Content Include="vendor\fontawesome-free\css\regular.min.css" />
+    <Content Include="vendor\fontawesome-free\css\solid.css" />
+    <Content Include="vendor\fontawesome-free\css\solid.min.css" />
+    <Content Include="vendor\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="vendor\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="vendor\fontawesome-free\css\v4-shims.css" />
+    <Content Include="vendor\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="vendor\jquery\jquery.js" />
+    <Content Include="vendor\jquery\jquery.min.js" />
+    <Content Include="vendor\jquery\jquery.slim.js" />
+    <Content Include="vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\anasayfaDüzen.aspx.cs">
+      <DependentUpon>anasayfaDüzen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\anasayfaDüzen.aspx.designer.cs">
+      <DependentUpon>anasayfaDüzen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\gönderiDüzen.aspx.cs">
+      <DependentUpon>gönderiDüzen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\gönderiDüzen.aspx.designer.cs">
+      <DependentUpon>gönderiDüzen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\hakkimizdaDüzen.aspx.cs">
+      <DependentUpon>hakkimizdaDüzen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\hakkimizdaDüzen.aspx.designer.cs">
+      <DependentUpon>hakkimizdaDüzen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\konuEkle.aspx.cs">
+      <DependentUpon>konuEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\konuEkle.aspx.designer.cs">
+      <DependentUpon>konuEkle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\kullanicilar.aspx.cs">
+      <DependentUpon>kullanicilar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\kullanicilar.aspx.designer.cs">
+      <DependentUpon>kullanicilar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\sifreDegistir.aspx.cs">
+      <DependentUpon>sifreDegistir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\sifreDegistir.aspx.designer.cs">
+      <DependentUpon>sifreDegistir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\yetkiAl.aspx.cs">
+      <DependentUpon>yetkiAl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\yetkiAl.aspx.designer.cs">
+      <DependentUpon>yetkiAl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\yetkiVer.aspx.cs">
+      <DependentUpon>yetkiVer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\yetkiVer.aspx.designer.cs">
+      <DependentUpon>yetkiVer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hakkimizda.aspx.cs">
+      <DependentUpon>Hakkimizda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hakkimizda.aspx.designer.cs">
+      <DependentUpon>Hakkimizda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KayitOl.aspx.cs">
+      <DependentUpon>KayitOl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayitOl.aspx.designer.cs">
+      <DependentUpon>KayitOl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanicilar\kullanici.aspx.cs">
+      <DependentUpon>kullanici.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar\kullanici.aspx.designer.cs">
+      <DependentUpon>kullanici.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanicilar\Kullanici.Master.cs">
+      <DependentUpon>Kullanici.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar\Kullanici.Master.designer.cs">
+      <DependentUpon>Kullanici.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanicilar\KullaniciPaneli.aspx.cs">
+      <DependentUpon>KullaniciPaneli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar\KullaniciPaneli.aspx.designer.cs">
+      <DependentUpon>KullaniciPaneli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanicilar\postDüzenle.aspx.cs">
+      <DependentUpon>postDüzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar\postDüzenle.aspx.designer.cs">
+      <DependentUpon>postDüzenle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanicilar\postSil.aspx.cs">
+      <DependentUpon>postSil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar\postSil.aspx.designer.cs">
+      <DependentUpon>postSil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanicilar\profilDüzen.aspx.cs">
+      <DependentUpon>profilDüzen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar\profilDüzen.aspx.designer.cs">
+      <DependentUpon>profilDüzen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanicilar\sifreDegistir.aspx.cs">
+      <DependentUpon>sifreDegistir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar\sifreDegistir.aspx.designer.cs">
+      <DependentUpon>sifreDegistir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanicilar\yeniPost.aspx.cs">
+      <DependentUpon>yeniPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar\yeniPost.aspx.designer.cs">
+      <DependentUpon>yeniPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\konular.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\kullanicilar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\paylasimlar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\platform.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Paylasimlar\Begen.aspx.cs">
+      <DependentUpon>Begen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paylasimlar\Begen.aspx.designer.cs">
+      <DependentUpon>Begen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paylasimlar\paylasimDetay.aspx.cs">
+      <DependentUpon>paylasimDetay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paylasimlar\paylasimDetay.aspx.designer.cs">
+      <DependentUpon>paylasimDetay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paylasimlar\paylasimlar.aspx.cs">
+      <DependentUpon>paylasimlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paylasimlar\paylasimlar.aspx.designer.cs">
+      <DependentUpon>paylasimlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Models\yetki.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Site.Master" />
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="Kullanicilar\Kullanici.Master" />
+    <None Include="packages.config" />
+    <Content Include="scss\clean-blog.scss" />
+    <Content Include="scss\_bootstrap-overrides.scss" />
+    <Content Include="scss\_contact.scss" />
+    <Content Include="scss\_footer.scss" />
+    <Content Include="scss\_global.scss" />
+    <Content Include="scss\_masthead.scss" />
+    <Content Include="scss\_mixins.scss" />
+    <Content Include="scss\_navbar.scss" />
+    <Content Include="scss\_post.scss" />
+    <Content Include="scss\_variables.scss" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="vendor\jquery\jquery.min.map" />
+    <Content Include="vendor\jquery\jquery.slim.min.map" />
+    <Content Include="src\pug\layouts\authentication.pug" />
+    <Content Include="src\pug\layouts\dashboard.pug" />
+    <Content Include="src\pug\layouts\error.pug" />
+    <Content Include="src\pug\layouts\includes\footer.pug" />
+    <Content Include="src\pug\layouts\includes\head\css.pug" />
+    <Content Include="src\pug\layouts\includes\head\icons.pug" />
+    <Content Include="src\pug\layouts\includes\head\meta.pug" />
+    <Content Include="src\pug\layouts\includes\head\title.pug" />
+    <Content Include="src\pug\layouts\includes\navigation\sidenav.pug" />
+    <Content Include="src\pug\layouts\includes\navigation\topnav.pug" />
+    <Content Include="src\pug\layouts\includes\scripts.pug" />
+    <Content Include="src\pug\pages\401.pug" />
+    <Content Include="src\pug\pages\404.pug" />
+    <Content Include="src\pug\pages\500.pug" />
+    <Content Include="src\pug\pages\charts.pug" />
+    <Content Include="src\pug\pages\includes\datatable.pug" />
+    <Content Include="src\pug\pages\includes\page-header.pug" />
+    <Content Include="src\pug\pages\index.pug" />
+    <Content Include="src\pug\pages\layout-sidenav-light.pug" />
+    <Content Include="src\pug\pages\layout-static.pug" />
+    <Content Include="src\pug\pages\login.pug" />
+    <Content Include="src\pug\pages\password.pug" />
+    <Content Include="src\pug\pages\register.pug" />
+    <Content Include="src\pug\pages\tables.pug" />
+    <Content Include="src\scss\layout\_authentication.scss" />
+    <Content Include="src\scss\layout\_dashboard-default.scss" />
+    <Content Include="src\scss\layout\_dashboard-fixed.scss" />
+    <Content Include="src\scss\layout\_error.scss" />
+    <Content Include="src\scss\navigation\sidenav\_sidenav-dark.scss" />
+    <Content Include="src\scss\navigation\sidenav\_sidenav-light.scss" />
+    <Content Include="src\scss\navigation\sidenav\_sidenav.scss" />
+    <Content Include="src\scss\navigation\_nav.scss" />
+    <Content Include="src\scss\navigation\_topnav.scss" />
+    <Content Include="src\scss\styles.scss" />
+    <Content Include="src\scss\variables\_navigation.scss" />
+    <Content Include="src\scss\variables\_spacing.scss" />
+    <Content Include="src\scss\_global.scss" />
+    <Content Include="src\scss\_variables.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1413</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44395/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
